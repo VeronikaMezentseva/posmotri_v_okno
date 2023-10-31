@@ -54,7 +54,7 @@ a:visited {
   align-content: end;
   gap: 30px;
   width: 1140px;
-  height: fit-content;
+  height: auto;
   margin: 133px 30px;
 }
 
