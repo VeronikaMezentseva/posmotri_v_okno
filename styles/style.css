@@ -43,10 +43,6 @@ a {
   color: inherit;
 }
 
-a:visited {
-  color: inherit;
-}
-
 /*----------------------------------------------*/
 
 .content {
@@ -66,8 +62,9 @@ a:visited {
 }
 
 .content__list {
+  max-width: 399px;
   height: 298px;
-  overflow: hidden scroll;
+  overflow: hidden auto;
 }
 
 .content__details {
@@ -86,7 +83,6 @@ a:visited {
   flex-direction: column;
   justify-content: end;
   width: fit-content;
-  padding-left: 9px;
 }
 
 .result__video-container {
@@ -104,39 +100,35 @@ a:visited {
 }
 
 .content__list-item:not(:last-child) {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 107px;
   margin: 2px;
 }
 
-.content__video-card:hover {
+.content__card-link:hover {
   text-decoration: underline;
 }
 
-.content__video-card:active::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: rgba(255, 255, 255, .2);
+.content__card-link:active {
+  background-color: #545050;
 }
 
-.content__video-card:focus {
+.content__card-link:focus {
   outline: none;
 }
 
-.content__video-card:focus-visible {
-  outline: none;
-  border: 1px solid #fff;
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .content__video-card-thumbnail {
+  object-fit: cover;
+  object-position: center;
   min-width: 194px;
   height: 103px;
 }
@@ -156,21 +148,21 @@ a:visited {
 }
 
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', 'sans-serif';
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
   padding-bottom: 3px;
-  padding-top: 4px;
+  padding-top: 3px;
 }
 
 .search-form__fieldset:nth-child(2) .search-form__fieldset-title {
-  padding-left: 12px;
+  padding-left: 5px;
 }
 
 .title {
-  font-family: 'Oswald';
+  font-family: 'Oswald', 'sans-serif';
   font-size: 75px;
   font-weight: 700;
   line-height: 70px;
@@ -179,33 +171,30 @@ a:visited {
 }
 
 .content__accent {
-  opacity: 0.3;
+  color: #545050;
 }
 
 .content__video-card-title {
-  font-family: 'Oswald';
+  font-family: 'Oswald', 'sans-serif';
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   letter-spacing: 0em;
   text-transform: uppercase;
   padding-bottom: 6px;
-  padding-top: 4px;
-  padding-left: 5px;
 }
 
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', 'sans-serif';
   font-size: 18px;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0em;
   padding-top: 4px;
-  padding-left: 5px;
 }
 
 .search-form__label-text {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', 'sans-serif';
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -235,15 +224,21 @@ a:visited {
 .search-form__textfield {
   appearance: none;
   background-color: rgba(255, 255, 255, 0);
+  color: #fff;
   padding: 2.5px 14px 2.5px 0;
-  color: rgba(255, 255, 255, 0.70);
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', 'sans-serif';
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   border: none;
   width: 100%;
+  border-top: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.70);
 }
 
 .search-form__label:has(:focus-visible) {
@@ -257,11 +252,6 @@ a:visited {
   gap: 5px;
 }
 
-.search-form__fieldset:first-child .search-form__label {
-  border-top: 1px solid rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(255, 255, 255);
-}
-
 .search-form__textfield:focus {
   outline: none;
 }
@@ -269,7 +259,7 @@ a:visited {
 .search-form__checkbox-list {
   display: flex;
   padding-top: 3px;
-  padding-left: 12px;
+  padding-left: 5px;
   gap: 8px;
 }
 
@@ -280,13 +270,14 @@ a:visited {
   padding-bottom: 6px;
   color: #FFF;
   text-align: center;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', 'sans-serif';
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  background-color: rgba(000, 000, 000, 0);
+  background-color: transparent;
   align-self: end;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -294,7 +285,11 @@ a:visited {
 }
 
 .button:active {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button:focus-visible {
@@ -339,5 +334,5 @@ a:visited {
 }
 
 .content__card-link_current {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: #545050;
 }
