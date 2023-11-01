@@ -106,7 +106,6 @@ a {
 .content__video-card {
   display: flex;
   justify-content: space-between;
-  position: relative;
   margin: 2px;
 }
 
